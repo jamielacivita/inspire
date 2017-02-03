@@ -12,7 +12,17 @@
 		new Vue({
 			el: '#image',
 			data:{
-				image: image
+				//image: image
+				image: 'url("https://unsplash.com/photos/N_3CHNdliVs")'	
+			},
+			mounted: function(){this.mountBackground(this.image)},
+			methods:
+			{
+				mountBackground: function(image)
+				{
+					console.log("in mountBackground with: ", image)
+
+				}
 			}
 		})
 
