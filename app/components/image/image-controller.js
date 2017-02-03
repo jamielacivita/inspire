@@ -6,22 +6,19 @@
 	var imageService = new ImageService();
 	
 	imageService.getImage(function(image){
-		console.log(image);
-		
 
 		new Vue({
 			el: '#image',
 			data:{
-				//image: image
-				image: 'url("https://unsplash.com/photos/N_3CHNdliVs")'	
+				image: image["url"]
 			},
 			mounted: function(){this.mountBackground(this.image)},
 			methods:
 			{
 				mountBackground: function(image)
 				{
-					console.log("in mountBackground with: ", image)
-
+					bodyGrab = document.getElementById("body")
+					bodyGrab.style.backgroundImage = "url("+image+")";
 				}
 			}
 		})
