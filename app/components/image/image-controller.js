@@ -12,7 +12,7 @@
 			data:{
 				image: image["url"]
 			},
-			mounted: function(){this.mountBackground(this.image)},
+			//mounted: function(){this.mountBackground(this.image)},
 			methods:
 			{
 				mountBackground: function(image)
