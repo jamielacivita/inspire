@@ -20,7 +20,7 @@
 				tempF: 'FahData',
 			},
 			
-			//mounted: function(){this.getTemp()},
+			mounted: function(){this.getTemp()},
 
 			methods:
 			{
