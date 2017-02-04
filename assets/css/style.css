@@ -1,1 +1,31 @@
-/* body {background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/500px-SMPTE_Color_Bars_16x9.svg.png')} */
+body {background-repeat: no-repeat;
+background-size: cover;
+}
+
+.testbox {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    margin-bottom: 10px;
+    border: 1px solid red;
+    width:20%;
+    background-color: black;
+    color:white;
+    padding: 15px 15px;
+    }
+
+.showToDos
+{
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    margin-bottom: 0px;
+    color:white;
+    padding: 5px 5px;
+}
+
+ul {list-style-type: none;}
+
+.todoCounter {margin-top:5px; margin-left:40px;}
+
+.deleteChecks {color: orangered;}

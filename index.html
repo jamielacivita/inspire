@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Inspire</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -12,35 +13,61 @@
 
 
 <body id="body">
+	<div id="todo">
+		<div class="showTodos" @click="tm.showToDos()"><h3>show todos<h3></div>
+		<div v-if="show_Todos" class="testbox">
+			<div class="todoCounter">
+				<p>{{numtodo}} to do</p>
+			</div>
+			<ul>
+				<li v-for="(item,index) in todo" @click="tm.checkItem(item)">
+					<span v-if="item.status==1"><i class="fa fa-square-o" aria-hidden="true"></i></span>
+					<span v-if="item.status==2"><i class="fa fa-check-square-o" aria-hidden="true"></i></span> {{index}} {{item.text}} {{item.status}}
+				</li>
+			</ul>
 
-	<div class="container">
-		<h2>Simple Collapsible</h2>
-		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Todo</button>
-		<div id="demo" class="collapse">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+			<div id="todoForm">
+				<form @submit.prevent="formSubmitted">
+					<input type="text" v-model="inputToDo" style="color:black;"><span v-on:click="tm.hideTodos()">Hide ToDos</span>
+<button type="button" class="deleteChecks" v-on:click="tm.clearCompleated()" style="color: black; background-color: orangered; position: absolute; top: 15px; right: 15px;">Clear Completed</button>
+<button type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;">Add Todo</button>
+</form>
+</div>
+</div>
+
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Todo</button>
+		</div>
+	</div>
+	<div id="demo" class="collapse">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 
 
-			<h1>Todo:</h1>
+		<h1>Todo:</h1>
+		<div id="todo">
+			<li v-for="(item,index) in arr_todos_pending" @click="tm.removeItem(item)">{{item.text}} {{index}}</li>
+			</ul>
 
 
-
-			<div id="todo">
-				<li v-for="(item,index) in todo" @click="tm.removeItem(index)">{{item.text}}{{item.status}}</li>
-				</ul>
-				<div id="todoForm">
-					<form @submit.prevent="formSubmitted">
-						<input type="text" v-model="inputToDo">
-						<button type="submit">Add Todo</button>
-					</form>
-				</div>
+			<div id="todoForm">
+				<form @submit.prevent="formSubmitted">
+					<input type="text" v-model="inputToDo">
+					<button type="submit">Add Todo</button>
+				</form>
 			</div>
 		</div>
+	</div>
 
 
 
-		<div id="weather">
+	<div id="weather">
 		<h1>This is weather info</h1>
 		<h2>{{where}}</h2>
 		<h2>{{tempC}}</h2>
@@ -48,32 +75,32 @@
 	</div>
 
 	<div id="quote">
-	<h1>This is quote data</h1>
-	{{quote}}
-	<h2>{{quoteText}}</h2>
-	<h2>{{quoteAuthor}}</h2>
+		<h1>This is quote data</h1>
+		{{quote}}
+		<h2>{{quoteText}}</h2>
+		<h2>{{quoteAuthor}}</h2>
 	</div>
 
 
 
-	</div>
+</div>
 
-	<!--JS Libraries-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
-	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<!--JS Libraries-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
-	<!--Initialize App-->
-	<script src="app/init.js"></script>
-	<script src="app/components/weather/weather-service.js"></script>
-	<script src="app/components/image/image-service.js"></script>
-	<script src="app/components/quote/quote-service.js"></script>
-	<script src="app/components/todo/todo-service.js"></script>
+<!--Initialize App-->
+<script src="app/init.js"></script>
+<script src="app/components/weather/weather-service.js"></script>
+<script src="app/components/image/image-service.js"></script>
+<script src="app/components/quote/quote-service.js"></script>
+<script src="app/components/todo/todo-service.js"></script>
 
-	<!--Load your scripts below-->
-	<script src="app/components/weather/weather-controller.js"></script>
-	<script src="app/components/image/image-controller.js"></script>
-	<script src="app/components/quote/quote-controller.js"></script>
-	<script src="app/components/todo/todo-controller.js"></script>
+<!--Load your scripts below-->
+<script src="app/components/weather/weather-controller.js"></script>
+<script src="app/components/image/image-controller.js"></script>
+<script src="app/components/quote/quote-controller.js"></script>
+<script src="app/components/todo/todo-controller.js"></script>
 
 </body>
 

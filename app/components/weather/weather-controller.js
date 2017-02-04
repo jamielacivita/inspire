@@ -37,7 +37,7 @@
 
 				getTemp: function()
 				{
-				console.log("in getTemp")
+				//console.log("in getTemp")
 				weatherObject = JSON.parse(weather)
 				this.tempK = weatherObject['main']['temp']	
 				this.tempK = this.tempK.toFixed(0)
