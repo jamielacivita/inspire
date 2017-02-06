@@ -8,7 +8,7 @@
 		//console.log("type of weather: :",typeof weather)
 		//What can you do with this weather object?
 
-		new Vue({
+		wm = new Vue({
 			el: '#weather',
 			data:
 			{
@@ -18,6 +18,8 @@
 				tempK: 'KelvenData',
 				tempC: 'CelsusData',
 				tempF: 'FahData',
+				showC: true,
+				showF: false
 			},
 			
 			mounted: function(){this.getTemp()},
@@ -45,6 +47,14 @@
 				this.tempF = this.tempF.toFixed(0)	
 				this.tempC = this.tempK-273
 				this.tempC = this.tempC.toFixed(0)
+				this.getName()
+				},
+				flipTemp: function()
+				{
+				console.log("in flipTemp")
+				console.log(this.showC)
+				this.showC = !this.showC;
+				console.log(this.showC)
 				}
 			}
 		})

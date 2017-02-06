@@ -2,12 +2,11 @@ body {background-repeat: no-repeat;
 background-size: cover;
 }
 
-.testbox {
+.todoBox {
     position: fixed;
     bottom: 0;
     right: 20px;
     margin-bottom: 10px;
-    border: 1px solid red;
     width:20%;
     background-color: black;
     color:white;
@@ -29,3 +28,38 @@ ul {list-style-type: none;}
 .todoCounter {margin-top:5px; margin-left:40px;}
 
 .deleteChecks {color: orangered;}
+
+.wxBox
+{
+    position: fixed;
+    top: 0;
+    right: 20px;
+    margin-top: 10px;
+    width:20%;
+    background-color: black;
+    color:white;
+    padding: 15px 15px;
+}
+
+.quoteBox
+{
+    position: fixed;
+    bottom: 0;
+    right: 30%;
+    margin-bottom: 10px;
+    width:40%;
+    background-color: black;
+    color:white;
+    padding: 15px 15px;
+}
+
+.clockBox
+{
+    position: fixed;
+    bottom: 50%;
+    right: 40%;
+    width:20%;
+    background-color: black;
+    color:white;
+    padding: 15px 15px;
+}

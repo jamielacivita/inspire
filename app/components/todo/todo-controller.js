@@ -3,8 +3,6 @@
 	// There are two methods getTodos returns and array
 	// saveTodos accepts an array and stores it to your local storage
 	
-
-	var tc = this;
 	var todoService = new TodoService();
 	
 			tm = new Vue({
@@ -21,15 +19,11 @@
 			{
 				formSubmitted()
 				{
-					console.log("Inside draw form submitted with: ", this.inputToDo)
 					todoObj = {text:this.inputToDo, status:1}
-					console.log("todoObj: ", todoObj)
 					this.todo.push(todoObj)
-					console.log("after push: ", this.todo)
 				},
 				drawTodos()
 				{
-					console.log("Inside draw Todos")
 					this.todo = todoService.getTodos()
 				},
 				checkItem(obj_item)
@@ -37,15 +31,9 @@
 					console.assert(typeof obj_item == 'object')
 					console.assert(obj_item.status == 1 || obj_item.status == 2)
 					if (obj_item.status == 1)
-						{obj_item.status = 2
-						 //this.numtodo++;	
-						}
+						{obj_item.status = 2}
 					else
-						{obj_item.status = 1
-						//this.numtodo--;	
-						}
-					
-					console.log("status changed to 2")
+						{obj_item.status = 1}
 				},
 				clearCompleated()
 				{			
@@ -62,13 +50,11 @@
 				},
 				hideTodos()
 				{			
-					console.log("in hide todos.")
 					this.show_Todos = false;
 					this.show_TodosButton = true;
 				},
 				showToDos()
 				{			
-					console.log("in show todos.")
 					this.show_Todos = true;
 					this.show_TodosButton = false;
 				}
@@ -91,15 +77,11 @@
 
 				arr_todos_pending: function()
 				{
-					
 					var arr_pending = []
 					console.log(this.todo)
 					for (i = 0; i < this.todo.length; i++)
 					{
 						element = this.todo[i];
-						console.log(element.text)
-						console.log(element.status)
-						
 						console.assert(typeof element == 'object')
 						if (1 == 1)
 						{
@@ -110,5 +92,4 @@
 				}
 			}
 		})
-
 }())

@@ -1,0 +1,84 @@
+//You want clicking a div to execute a vuejs method.
+Inside the div use @click = "[vue object].method()" 
+Ex: <div class="showTodos" @click="tm.showToDos()">
+verify that div is inside the Vue's el: element.
+verify that the method name is unique
+
+//You want to show or hide a div based on a boolean condition in the data.
+<div v-if="show_Todos" class="todoBox">
+    in this case show_Todos is defined in the data section as true.
+
+//iterating over an array of objects
+//on click the object is passed into the method.
+//if you need the index of the array you can use the second parameter (index in this case)
+<li v-for="(item,index) in todo" @click="tm.checkItem(item)">
+
+//syntax for preventing page reload on forms.
+<form @submit.prevent="formSubmitted">
+
+//getting input directly into a variable -- use v-model. 
+<input type="text" v-model="inputToDo" style="color:black;"><span v-on:click="tm.hideTodos()">Hide ToDos</span>
+
+//alternative syntax for button clicking. 
+<button type="button" class="deleteChecks" v-on:click="tm.clearCompleated()" style="color: black; background-color: orangered; position: absolute; top: 15px; right: 15px;">Clear Completed</button>
+
+//changing the value of a variable based on mouseover.
+<div class="quoteBox" v-on:mouseover="showText = !showText">
+
+//use of v-if / v-else to show one or the other of a pair of elements.
+<h2 v-if="showText">{{quoteText}}</h2>
+<h2 v-else>{{quoteAuthor}}</h2>
+
+
+@click="tm.showToDos()"
+v-if="show_Todos"
+<li v-for="(item,index) in todo" @click="tm.checkItem(item)">
+<form @submit.prevent="formSubmitted">
+<input type="text" v-model="inputToDo" style="color:black;"><span v-on:click="tm.hideTodos()">Hide ToDos</span>
+<button type="button" class="deleteChecks" v-on:click="tm.clearCompleated()" style="color: black; background-color: orangered; position: absolute; top: 15px; right: 15px;">Clear Completed</button>
+<div class="quoteBox" v-on:mouseover="showText = !showText">
+<h2 v-if="showText">{{quoteText}}</h2>
+<h2 v-else>{{quoteAuthor}}</h2>
+
+OQ: what is the purpose of this line of code:
+var cc = this;
+
+//run a function once per second.
+setInterval(function(){cm.theClock()},1000)
+OQ:    note the wierdness about having to put this in an anonymous function.
+    is this strictly necessary?
+
+//use of mounted to start a method:
+mounted: function(){this.getName()}
+OQ: is it possible for mounted to start an external method?
+OQ: when does this get invoked, once or many times?
+
+//Date methods
+var d = new Date();
+var h = d.getHours()
+    //on a 24 hour clock.
+var m = d.getMinutes()
+var s = d.getSeconds()
+
+
+structure of project
+====================
+at root:
+    index.html
+    app folder
+        init.js file
+        components folder
+            each major screen element gets a folder
+                in each folder is a controller.js file and a service.js file.
+    assets folder
+        css folder      
+            style.css file
+
+
+
+
+
+
+
+
+
